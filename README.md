@@ -152,6 +152,3 @@ Early-stage. Expect rapid changes.
 ## License
 
 Artistic License 2.0
-
-もし次やるなら、READMEに**GIF（CLIデモ）**入れると一気に刺さります。
-```
