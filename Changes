@@ -1,5 +1,10 @@
 Revision history for App-PerlGlue
 
+0.04  2026-04-29
+    - Made CLI tests shell-portable on Windows by replacing shell-dependent
+      `echo`/`printf` pipelines with Perl one-liners.
+    - Bumped version to 0.04.
+
 0.03  2026-04-29
     - Added subcommand help flags so `perlglue <command> --help` and `-h`
       print command-specific usage.
