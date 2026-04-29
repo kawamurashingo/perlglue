@@ -6,7 +6,7 @@ use feature qw(say);
 use JSON::PP qw(encode_json decode_json);
 use Text::ParseWords qw(parse_line);
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 sub run {
     my ($class, @argv) = @_;
