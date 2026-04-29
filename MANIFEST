@@ -1,0 +1,6 @@
+Makefile.PL
+README.md
+bin/perlglue
+lib/App/PerlGlue.pm
+t/00-load.t
+t/cli.t
