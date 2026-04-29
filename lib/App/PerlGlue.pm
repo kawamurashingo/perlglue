@@ -6,7 +6,7 @@ use feature qw(say);
 use JSON::PP qw(encode_json decode_json);
 use Text::ParseWords qw(parse_line);
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 sub run {
     my ($class, @argv) = @_;
@@ -18,6 +18,8 @@ sub run {
         say "perlglue $VERSION";
         return 0;
     }
+
+    return _cmd_command_help($cmd)            if @argv && ($argv[0] eq '--help' || $argv[0] eq '-h');
 
     return _cmd_upper()                      if $cmd eq 'upper';
     return _cmd_lower()                      if $cmd eq 'lower';
@@ -187,13 +189,43 @@ sub _cmd_rename {
     return 0;
 }
 
+sub _cmd_command_help {
+    my ($cmd) = @_;
+    my %usage = (
+        upper    => 'perlglue upper < input.txt',
+        lower    => 'perlglue lower < input.txt',
+        lines    => 'perlglue lines [file] [--where EXPR]',
+        where    => 'perlglue where [file] [--where EXPR]',
+        replace  => q{perlglue replace 's/foo/bar/g' [file]},
+        pick     => 'perlglue pick users.csv --csv name,email',
+        convert  => 'perlglue convert users.csv --to jsonl',
+        csv      => 'perlglue csv users.csv --to jsonl',
+        'from-csv' => 'perlglue from-csv users.csv --to jsonl',
+        jsonl    => q{perlglue jsonl logs.jsonl '\$_->{status} >= 500'},
+        template => q{perlglue template users.csv 'Hello, {{name}}'},
+        rename   => q{perlglue rename 's/\s+/_/g' files...},
+        version  => 'perlglue version',
+        help     => 'perlglue help',
+    );
+
+    if (exists $usage{$cmd}) {
+        say $usage{$cmd};
+        return 0;
+    }
+
+    warn "Unknown command: $cmd\n";
+    return 2;
+}
+
 sub _help {
     print <<'HELP';
 perlglue - glue messy text into useful shapes
 
 Usage:
   perlglue help
+  perlglue --help
   perlglue version
+  perlglue <command> --help
   perlglue upper < input.txt
   perlglue lower < input.txt
   perlglue lines [file] [--where EXPR]
