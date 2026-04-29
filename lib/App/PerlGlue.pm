@@ -354,7 +354,7 @@ input only.
 
 =head1 AUTHOR
 
-Your Name E<lt>you@example.comE<gt>
+Shingo Kawamura E<lt>pannakoota@gmail.comE<gt>
 
 =head1 LICENSE
 
