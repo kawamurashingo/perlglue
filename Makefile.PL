@@ -6,7 +6,7 @@ WriteMakefile(
     NAME          => 'App::PerlGlue',
     VERSION_FROM  => 'lib/App/PerlGlue.pm',
     ABSTRACT_FROM => 'lib/App/PerlGlue.pm',
-    AUTHOR        => 'Your Name <you@example.com>',
+    AUTHOR        => 'Shingo Kawamura <pannakoota1@gmail.com>',
     LICENSE       => 'perl_5',
     EXE_FILES     => ['bin/perlglue'],
     PREREQ_PM     => {},
@@ -18,8 +18,8 @@ WriteMakefile(
         resources => {
             repository => {
                 type => 'git',
-                url  => 'https://github.com/yourname/App-PerlGlue.git',
-                web  => 'https://github.com/yourname/App-PerlGlue',
+                url  => 'https://github.com/kawamurashingo/App-PerlGlue.git',
+                web  => 'https://github.com/kawamurashingo/App-PerlGlue',
             },
         },
     },
