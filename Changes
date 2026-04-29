@@ -1,5 +1,12 @@
 Revision history for App-PerlGlue
 
+0.03  2026-04-29
+    - Added subcommand help flags so `perlglue <command> --help` and `-h`
+      print command-specific usage.
+    - Clarified top-level usage text to include `perlglue --help` and
+      subcommand help form.
+    - Bumped version to 0.03 and updated CLI test expectation.
+
 0.02  2026-04-29
     - Added richer CLI command set to match README examples:
       lines/where filters, replace, pick --csv, convert --to jsonl,
